@@ -1,0 +1,28 @@
+~/.Xresources
+
+
+Xft.dpi:       192
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xcursor.size:  52
+
+*color0 : #3f3f3f
+*color1 : #705050
+*color2 : #60b48a
+*color3 : #dfaf8f
+*color4 : #506070
+*color5 : #dc8cc3
+*color6 : #8cd0d3
+*color7 : #dcdccc
+*color8 : #709080
+*color9 : #ab4642
+*color10 : #00ff66
+*color11 : #f0dfaf
+*color12 : #94bff3
+*color13 : #ec93d3
+*color14 : #93e0e3
+*color15 : #ffffff

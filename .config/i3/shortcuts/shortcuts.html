@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shortcuts.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <style>
+      /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+      /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+      body {
+        font-family: var(
+          --vscode-markdown-font-family,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe WPC',
+          'Segoe UI',
+          'Ubuntu',
+          'Droid Sans',
+          sans-serif
+        );
+        font-size: var(--vscode-markdown-font-size, 14px);
+        padding: 0 26px;
+        line-height: var(--vscode-markdown-line-height, 22px);
+        word-wrap: break-word;
+      }
+
+      #code-csp-warning {
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: white;
+        margin: 16px;
+        text-align: center;
+        font-size: 12px;
+        font-family: sans-serif;
+        background-color: #444444;
+        cursor: pointer;
+        padding: 6px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      #code-csp-warning:hover {
+        text-decoration: none;
+        background-color: #007acc;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      body.scrollBeyondLastLine {
+        margin-bottom: calc(100vh - 22px);
+      }
+
+      body.showEditorSelection .code-line {
+        position: relative;
+      }
+
+      body.showEditorSelection .code-active-line:before,
+      body.showEditorSelection .code-line:hover:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -12px;
+        height: 100%;
+      }
+
+      body.showEditorSelection li.code-active-line:before,
+      body.showEditorSelection li.code-line:hover:before {
+        left: -30px;
+      }
+
+      .vscode-light.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.15);
+      }
+
+      .vscode-light.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.4);
+      }
+
+      .vscode-light.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-dark.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .vscode-dark.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 160, 0, 0.7);
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 160, 0, 1);
+      }
+
+      .vscode-high-contrast.showEditorSelection
+        .code-line
+        .code-line:hover:before {
+        border-left: none;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:focus,
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 1px solid -webkit-focus-ring-color;
+        outline-offset: -1px;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        border-bottom: 2px solid;
+      }
+
+      h1 {
+        padding-bottom: 0.3em;
+        line-height: 1.2;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: normal;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+
+      table > thead > tr > th,
+      table > thead > tr > td,
+      table > tbody > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      blockquote {
+        margin: 0 7px 0 5px;
+        padding: 0 16px 0 10px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Consolas, 'Droid Sans Mono', 'Courier New',
+          monospace, 'Droid Sans Fallback';
+        font-size: 1em;
+        line-height: 1.357em;
+      }
+
+      body.wordWrap pre {
+        white-space: pre-wrap;
+      }
+
+      pre:not(.hljs),
+      pre.hljs code > div {
+        padding: 16px;
+        border-radius: 3px;
+        overflow: auto;
+      }
+
+      pre code {
+        color: var(--vscode-editor-foreground);
+        tab-size: 4;
+      }
+
+      /** Theming */
+
+      .vscode-light pre {
+        background-color: rgba(220, 220, 220, 0.4);
+      }
+
+      .vscode-dark pre {
+        background-color: rgba(10, 10, 10, 0.4);
+      }
+
+      .vscode-high-contrast pre {
+        background-color: rgb(0, 0, 0);
+      }
+
+      .vscode-high-contrast h1 {
+        border-color: rgb(0, 0, 0);
+      }
+
+      .vscode-light table > thead > tr > th {
+        border-color: rgba(0, 0, 0, 0.69);
+      }
+
+      .vscode-dark table > thead > tr > th {
+        border-color: rgba(255, 255, 255, 0.69);
+      }
+
+      .vscode-light h1,
+      .vscode-light hr,
+      .vscode-light table > tbody > tr + tr > td {
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      .vscode-dark h1,
+      .vscode-dark hr,
+      .vscode-dark table > tbody > tr + tr > td {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+    </style>
+
+    <style>
+      /* Tomorrow Theme */
+      /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+      /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+      /* Tomorrow Comment */
+      .hljs-comment,
+      .hljs-quote {
+        color: #8e908c;
+      }
+
+      /* Tomorrow Red */
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-tag,
+      .hljs-name,
+      .hljs-selector-id,
+      .hljs-selector-class,
+      .hljs-regexp,
+      .hljs-deletion {
+        color: #c82829;
+      }
+
+      /* Tomorrow Orange */
+      .hljs-number,
+      .hljs-built_in,
+      .hljs-builtin-name,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-params,
+      .hljs-meta,
+      .hljs-link {
+        color: #f5871f;
+      }
+
+      /* Tomorrow Yellow */
+      .hljs-attribute {
+        color: #eab700;
+      }
+
+      /* Tomorrow Green */
+      .hljs-string,
+      .hljs-symbol,
+      .hljs-bullet,
+      .hljs-addition {
+        color: #718c00;
+      }
+
+      /* Tomorrow Blue */
+      .hljs-title,
+      .hljs-section {
+        color: #4271ae;
+      }
+
+      /* Tomorrow Purple */
+      .hljs-keyword,
+      .hljs-selector-tag {
+        color: #8959a8;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        color: #4d4d4c;
+        padding: 0.5em;
+      }
+
+      .hljs-emphasis {
+        font-style: italic;
+      }
+
+      .hljs-strong {
+        font-weight: bold;
+      }
+    </style>
+
+    <style>
+      /*
+ * Markdown PDF CSS
+ */
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI',
+          'Ubuntu', 'Droid Sans', sans-serif, 'Meiryo';
+        padding: 0 12px;
+      }
+
+      pre {
+        background-color: #f8f8f8;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+
+      pre:not(.hljs) {
+        padding: 23px;
+        line-height: 19px;
+      }
+
+      blockquote {
+        background: rgba(127, 127, 127, 0.1);
+        border-color: rgba(0, 122, 204, 0.5);
+      }
+
+      .emoji {
+        height: 1.4em;
+      }
+
+      code {
+        font-size: 14px;
+        line-height: 19px;
+        color: white;
+        border-radius: 5px;
+        background-color: #848484;
+        padding: 5px;
+      }
+
+      /* for inline code */
+      :not(pre):not(.hljs) > code {
+        /* color: #C9AE75; Change the old color so it seems less like an error */
+        font-size: inherit;
+      }
+
+      /* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+      .page {
+        page-break-after: always;
+      }
+    </style>
+
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  </head>
+  <body>
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme:
+          document.body.classList.contains('vscode-dark') ||
+          document.body.classList.contains('vscode-high-contrast')
+            ? 'dark'
+            : 'default',
+      })
+    </script>
+    <h1 id="i3-help">I3 help</h1>
+    <ul>
+      <li><a href="#i3-help">I3 help</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#power">Power</a></li>
+      <li>
+        <a href="#workspaces-desktops">Workspaces (desktops)</a>
+        <ul>
+          <li><a href="#rename">Rename</a></li>
+          <li><a href="#navigation">Navigation</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#windows">Windows</a>
+        <ul>
+          <li><a href="#fullscreen">Fullscreen</a></li>
+          <li><a href="#borders">Borders</a></li>
+          <li><a href="#focus-window">Focus Window</a></li>
+          <li><a href="#move-window">Move Window</a></li>
+          <li><a href="#orientation">Orientation</a></li>
+          <li><a href="#resize">Resize</a></li>
+        </ul>
+      </li>
+      <li><a href="#layout">Layout</a></li>
+      <li>
+        <a href="#scratchpad-close-to-minimize"
+          >Scratchpad (close to minimize)</a
+        >
+      </li>
+      <li><a href="#wallpaper">Wallpaper</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#gaps">Gaps</a></li>
+      <li><a href="#i3">I3</a></li>
+    </ul>
+    <h1 id="apps">Apps</h1>
+    <p><code>Win</code>+<code>q</code> Quit or close current window.</p>
+    <p>
+      <code>Win</code>+<code>Ctrl</code>+<code>x</code> Click on window to
+      &quot;Force Quit&quot;.
+    </p>
+    <p><code>Win</code>+<code>Space</code> Menu with all the apps.</p>
+    <p><code>Win</code>+<code>d</code> dmenu.</p>
+    <p><code>Alt</code>+<code>Tab</code> Show opened windows.</p>
+    <p><code>Win</code>+<code>Enter</code> Launch terminal.</p>
+    <p><code>Win</code>+<code>F1</code> Launch File manager.</p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>F1</code> Launch File manager
+      with sudo.
+    </p>
+    <p>
+      <code>Win</code>+<code>Ctrl</code>+<code>m</code> Launch audio
+      configuration.
+    </p>
+    <p><code>Win</code>+<code>F2</code> Launch Google Chrome.</p>
+    <p><code>Win</code>+<code>F3</code> Launch VS Code.</p>
+    <p><code>Win</code>+<code>F4</code> Launch Android emulator.</p>
+    <p><code>Win</code>+<code>F10</code> Toggle touchscreen.</p>
+    <p>
+      <code>Win</code>+<code>t</code> Quit Compositor (transparent windows).
+    </p>
+    <p>
+      <code>Win</code>+<code>Ctrl</code>+<code>t</code> Start Compositor
+      (transparent windows).
+    </p>
+    <h1 id="power">Power</h1>
+    <p><code>Win</code>+<code>9</code> Lock the screen.</p>
+    <p>
+      <code>Win</code>+<code>0</code> Menu for lock, log out, switch user,
+      suspend, hibernate, restart or shut down. use <code>Shift</code>+<code
+        >letter in ()</code
+      >
+      to select option.
+    </p>
+    <h1 id="workspaces-desktops">Workspaces (desktops)</h1>
+    <h2 id="rename">Rename</h2>
+    <p><code>Win</code>+<code>Shift</code>+<code>n</code> Rename workspace.</p>
+    <h2 id="navigation">Navigation</h2>
+    <p><code>Win</code>+<code>Ctrl</code>+<code>Right</code> Next workspace.</p>
+    <p>
+      <code>Win</code>+<code>Ctrl</code>+<code>Left</code> Previous workspace.
+    </p>
+    <p><code>Win</code>+<code>Tab</code> Loop through workspaces.</p>
+    <p><code>Win</code>+<code>Number</code> Focus to workspace with number.</p>
+    <p>
+      <code>Win</code>+<code>Ctrl</code>+<code>Number</code> Move window to
+      workspace.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>Number</code> Move window and
+      focus workspace.
+    </p>
+    <p>
+      <code>Win</code>+<code>b</code> Toggle focus between current and previous
+      workspace.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>b</code> Move window between
+      current and previous workspace.
+    </p>
+    <p><code>Win</code>+<code>PgUp</code> Move workspace to left monitor.</p>
+    <p><code>Win</code>+<code>PgDn</code> Move workspace to right monitor.</p>
+    <h1 id="windows">Windows</h1>
+    <h2 id="fullscreen">Fullscreen</h2>
+    <p><code>Win</code>+<code>f</code> Toggle fullscreen.</p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>f</code> Fullscreen in new
+      workspace.
+    </p>
+    <h2 id="borders">Borders</h2>
+    <p><code>Win</code>+<code>u</code> Border none.</p>
+    <p><code>Win</code>+<code>y</code> Border 1 pixel.</p>
+    <p><code>Win</code>+<code>n</code> Border normal.</p>
+    <h2 id="focus-window">Focus Window</h2>
+    <p><code>Win</code>+<code>a</code> Focus parent container.</p>
+    <p>
+      <code>Win</code>+<code>j</code> or <code>Win</code>+<code>Left</code>
+      Focus left.
+    </p>
+    <p>
+      <code>Win</code>+<code>k</code> or <code>Win</code>+<code>Down</code>
+      Focus down.
+    </p>
+    <p>
+      <code>Win</code>+<code>l</code> or <code>Win</code>+<code>Up</code> Focus
+      up.
+    </p>
+    <p>
+      <code>Win</code>+<code>;</code> or <code>Win</code>+<code>Right</code>
+      Focus right.
+    </p>
+    <h2 id="move-window">Move Window</h2>
+    <p><code>Win</code>+<code>Click</code> Move floating window.</p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>j</code> or
+      <code>Win</code>+<code>Shift</code>+<code>Left</code> Move left.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>k</code> or
+      <code>Win</code>+<code>Shift</code>+<code>Down</code> Move down.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>l</code> or
+      <code>Win</code>+<code>Shift</code>+<code>Up</code> Move up.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>;</code> or
+      <code>Win</code>+<code>Shift</code>+<code>Right</code> Move right.
+    </p>
+    <h2 id="orientation">Orientation</h2>
+    <p><code>Win</code>+<code>h</code> Split horizontally.</p>
+    <p><code>Win</code>+<code>v</code> Split vertically.</p>
+    <h2 id="resize">Resize</h2>
+    <p><code>Win</code>+<code>Right Click</code> Pull edge to resize.</p>
+    <h1 id="layout">Layout</h1>
+    <p><code>Win</code>+<code>s</code> Stacked windows.</p>
+    <p><code>Win</code>+<code>w</code> Tabbed windows.</p>
+    <p><code>Win</code>+<code>e</code> Tiled windows.</p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>Space</code> Toggle float on
+      focused window.
+    </p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>s</code> Make focused floating
+      window sticky.
+    </p>
+    <h1 id="scratchpad-close-to-minimize">Scratchpad (close to minimize)</h1>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>m</code> or
+      <code>win</code>+<code>F12</code> Move current window to scratchpad.
+    </p>
+    <p>
+      <code>Win</code>+<code>m</code> or <code>Win</code>+<code>F11</code> Cycle
+      through scratchpad.
+    </p>
+    <h1 id="wallpaper">Wallpaper</h1>
+    <p><code>TODO</code> Start wallpaper slideshow.</p>
+    <p><code>TODO</code> Stop wallpaper slideshow.</p>
+    <h1 id="screenshots">Screenshots</h1>
+    <p><code>Win</code>+<code>PrtSc</code> Screenshot of focused window.</p>
+    <p><code>Win</code>+<code>Ctrl</code>+<code>PrtSc</code> Screenshot.</p>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>PrtSc</code> Select Area for
+      screenshot.
+    </p>
+    <h1 id="gaps">Gaps</h1>
+    <p>
+      <code>Win</code>+<code>Shift</code>+<code>g</code> Menu at bottom of
+      screen to configure gaps (use keyboard to navigate).
+    </p>
+    <h1 id="i3">I3</h1>
+    <p><code>Win</code>+<code>Shift</code>+<code>e</code> Exit i3.</p>
+    <p>
+      <code>Win</code>+<code>i</code> Shows menu for Config, restart or reload
+      config. Use letter inside () to select an option.
+    </p>
+  </body>
+</html>

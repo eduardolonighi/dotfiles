@@ -1,0 +1,38 @@
+//.eslintrc.json
+{
+  "env": {
+    "es6": true
+  },
+
+  "parser": "babel-eslint",
+
+  "extends": ["airbnb-base"],
+
+  "plugins": ["prettier"],
+
+  "rules": {
+    "prettier/prettier": "error",
+    "consistent-return": "off",
+    //   "object-curly-newline": "off",
+    //   "no-plusplus": "off",
+    //   "class-methods-use-this": "off",
+    //   "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "prefer-const": "warn",
+    //   "comma-dangle": ["error", "always-multiline"],
+    "no-console": "off",
+    "arrow-body-style": "warn",
+    "semi": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ]
+  }
+}
